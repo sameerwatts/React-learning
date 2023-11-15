@@ -1,29 +1,57 @@
-import React from "react";
+import Label from "./Label";
 
-const UserInput = () => {
+const UserInput = ({ userInput, inputChangeHandler }) => {
+  const { initialInvestment, annualInvestment, expectedReturn, duration } =
+    userInput;
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
-        <div>
-          <label>INITIAL INVESTMENT</label>
-          <input type="text" />
-        </div>
-        <div>
-          <label>ANNUAL INVESTMENT</label>
-          <input type="text" />
-        </div>
+        <p>
+          <Label>INITIAL INVESTMENT</Label>
+          <input
+            type="number"
+            required
+            onChange={(e) =>
+              inputChangeHandler("initialInvestment", e.target.value)
+            }
+            value={initialInvestment}
+          />
+        </p>
+        <p>
+          <Label>ANNUAL INVESTMENT</Label>
+          <input
+            type="number"
+            required
+            onChange={(e) =>
+              inputChangeHandler("annualInvestment", e.target.value)
+            }
+            value={annualInvestment}
+          />
+        </p>
       </div>
       <div className="input-group">
-        <div>
-          <label>EXPECTED RETURN</label>
-          <input type="text" />
-        </div>
-        <div>
-          <label>DURATION</label>
-          <input type="number" />
-        </div>
+        <p>
+          <Label>EXPECTED RETURN</Label>
+          <input
+            type="number"
+            required
+            onChange={(e) =>
+              inputChangeHandler("expectedReturn", e.target.value)
+            }
+            value={expectedReturn}
+          />
+        </p>
+        <p>
+          <Label>DURATION</Label>
+          <input
+            type="number"
+            required
+            onChange={(e) => inputChangeHandler("duration", e.target.value)}
+            value={duration}
+          />
+        </p>
       </div>
-    </div>
+    </section>
   );
 };
 
