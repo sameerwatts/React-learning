@@ -1,37 +1,13 @@
-import { useState } from "react";
+import AuthInputs from './components/AuthInputs.jsx';
+import Header from './components/Header.jsx';
 
-import Header from "./component/Header";
-import ResultTable from "./component/ResultTable";
-import UserInput from "./component/UserInput";
-
-const initialUserInputData = {
-  initialInvestment: 10000,
-  annualInvestment: 1200,
-  expectedReturn: 6,
-  duration: 10,
-};
-function App() {
-  const [userInput, setUserInput] = useState(initialUserInputData);
-
-  const inputIsValid = userInput.duration >= 1;
-
-  const changeUserInput = (inputIdentifier, newValue) => {
-    setUserInput((prevUserInputState) => ({
-      ...prevUserInputState,
-      [inputIdentifier]: +newValue,
-    }));
-  };
-
+export default function App() {
   return (
     <>
       <Header />
-      <UserInput userInput={userInput} inputChangeHandler={changeUserInput} />
-      {inputIsValid && <ResultTable userInput={userInput} />}
-      {!inputIsValid && (
-        <p className="center">Please enter a duration greater than zero</p>
-      )}
+      <main>
+        <AuthInputs />
+      </main>
     </>
   );
 }
-
-export default App;
