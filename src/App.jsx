@@ -1,8 +1,20 @@
+import { useState } from "react";
+import NoProjectContent from "./component/NoProjectContent";
+import Sidebar from "./component/Sidebar";
+import AddNewProject from "./component/AddNewProject";
+
 function App() {
+
+  const [isAddProjectSelected, setIsAddProjectSelected] = useState(false);
+
+  const addProject = () => {
+    setIsAddProjectSelected(true)
+  }
   return (
-    <>
-      <h1 className="my-8 text-center text-5xl font-bold">Hello World</h1>
-    </>
+    <main className="h-screen my-8 flex gap-8">
+      <Sidebar handleAddProject={addProject}/>
+      {isAddProjectSelected ? <AddNewProject />: <NoProjectContent handleAddProject={addProject} />}
+    </main>
   );
 }
 
