@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomInput = ({ title, isMultilineInput, ...props }) => {
+const CustomInput = ({ title, typeOfInput, isMultilineInput, ...props }) => {
   return (
     <p className="flex flex-col gap-1 my-4 text-left">
       <label className="text-sm font-bold uppercase text-stone-500">

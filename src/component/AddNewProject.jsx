@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "./CustomInput";
 
-const AddNewProject = ({handleSubmitProject}) => {
+
+
+const AddNewProject = ({handleChange, handleSubmitProject}) => {
+
   return (
     <div className="w-[35rem] mt-16">
       <form onSubmit={handleSubmitProject} className="mt-4 text-right">
@@ -16,9 +19,9 @@ const AddNewProject = ({handleSubmitProject}) => {
             Save
           </button>
         </menu>
-        <CustomInput title='Title' isMultilineInput={false} type="text" />
-        <CustomInput title='Description' isMultilineInput={true} type="text" />
-        <CustomInput title='Due date' isMultilineInput={false} type="date" />
+        <CustomInput onChange={handleChange} name="title" title='Title' isMultilineInput={false} type="text" />
+        <CustomInput onChange={handleChange} name="description" title='Description' isMultilineInput={true} type="text" />
+        <CustomInput onChange={handleChange} name="dueDate" title='Due date' isMultilineInput={false} type="date" />
       </form>
     </div>
   );
