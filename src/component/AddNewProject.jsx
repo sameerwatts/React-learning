@@ -3,13 +3,13 @@ import CustomInput from "./CustomInput";
 
 
 
-const AddNewProject = ({handleChange, handleSubmitProject}) => {
+const AddNewProject = ({handleChange, handleSubmitProject, formData, cancelFormHandler}) => {
 
   return (
     <div className="w-[35rem] mt-16">
       <form onSubmit={handleSubmitProject} className="mt-4 text-right">
         <menu className="flex items-center justify-end gap-4 my-4">
-          <button className="text-stone-800 hover:text-stone-950">
+          <button type="button" onClick={cancelFormHandler} className="text-stone-800 hover:text-stone-950">
             Cancel
           </button>
           <button
@@ -19,9 +19,9 @@ const AddNewProject = ({handleChange, handleSubmitProject}) => {
             Save
           </button>
         </menu>
-        <CustomInput onChange={handleChange} name="title" title='Title' isMultilineInput={false} type="text" />
-        <CustomInput onChange={handleChange} name="description" title='Description' isMultilineInput={true} type="text" />
-        <CustomInput onChange={handleChange} name="dueDate" title='Due date' isMultilineInput={false} type="date" />
+        <CustomInput formData={formData} onChange={handleChange} name="title" title='Title' isMultilineInput={false} type="text" />
+        <CustomInput formData={formData} onChange={handleChange} name="description" title='Description' isMultilineInput={true} type="text" />
+        <CustomInput formData={formData} onChange={handleChange} name="dueDate" title='Due date' isMultilineInput={false} type="date" />
       </form>
     </div>
   );
