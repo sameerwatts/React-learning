@@ -10,6 +10,7 @@ const Quiz = () => {
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   const handleSelectAnswer = useCallback((selectedAnswer) => {
+    
     setUserAnswers((prevAnswers) => {
       return [...prevAnswers, selectedAnswer];
     });

@@ -1,13 +1,13 @@
-import React from 'react';
-import quizLogo from "../assets/quiz-logo.png";
+import { log } from '../log.js';
+import logoImg from '../assets/logo.png';
 
-const Header = () => {
-    return (
-        <header>
-            <img src={quizLogo} alt="Quiz logo" />
-            <h1>ReactQuiz</h1>
-        </header>
-    );
-};
+export default function Header() {
+  log('<Header /> rendered', 1);
 
-export default Header;
+  return (
+    <header id="main-header">
+      <img src={logoImg} alt="Magnifying glass analyzing a document" />
+      <h1>React - Behind The Scenes</h1>
+    </header>
+  );
+}
