@@ -1,32 +1,36 @@
-import reactImg from "./assets/react-core-concepts.png";
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+import { useState } from 'react';
 
-function genRandomInt(max) {
-  return Math.floor(Math.random() * (max + 1));
-}
-
-function Header() {
-  const description = reactDescriptions[genRandomInt(2)]
-
-  return (
-    <header>
-      <img src={reactImg} alt="Stylized atom" />
-      <h1>React Essentials</h1>
-      <p>
-        {description} React concepts you will need for almost any app you are going to build!
-      </p>
-    </header>
-  );
-}
+import Counter from './components/Counter/Counter.jsx';
+import Header from './components/Header.jsx';
+import { log } from './log.js';
 
 function App() {
+  log('<App /> rendered');
+
+  const [enteredNumber, setEnteredNumber] = useState(0);
+  const [chosenCount, setChosenCount] = useState(0);
+
+  function handleChange(event) {
+    setEnteredNumber(+event.target.value);
+  }
+
+  function handleSetClick() {
+    setChosenCount(enteredNumber);
+    setEnteredNumber(0);
+  }
+
   return (
-    <div>
+    <>
       <Header />
       <main>
-        <h2>Time to get started!</h2>
+        <section id="configure-counter">
+          <h2>Set Counter</h2>
+          <input type="number" onChange={handleChange} value={enteredNumber} />
+          <button onClick={handleSetClick}>Set</button>
+        </section>
+        <Counter initialCount={chosenCount} />
       </main>
-    </div>
+    </>
   );
 }
 
