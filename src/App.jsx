@@ -125,7 +125,7 @@ function App() {
           />
         )}
         {!error && (
-          <Plafces
+          <Places
             title="I'd like to visit ..."
             fallbackText="Select the places you would like to visit below."
             places={userPlaces}
