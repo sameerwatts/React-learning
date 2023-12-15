@@ -51,7 +51,7 @@ export default function Login() {
           <label htmlFor="email">Email</label>
           <input
             id="email"
-            type="email"
+            // type="email"
             name="email"
             onChange={(e) => handleValueChange(e, "email")}
             onBlur={() => handleInputBlur("email")}
