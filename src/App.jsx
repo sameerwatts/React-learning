@@ -1,16 +1,20 @@
-import Header from './components/Header.jsx';
-import Login from './components/StateLogin.jsx';
-import Signup from './components/Signup.jsx';
+import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
+import Header from "./components/Header";
+import Meals from "./components/Meals";
+import { CartContextProvider } from "./store/CartContext";
+import { UserContextProvider } from "./store/UserProgressContext";
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Login />
-        {/* <Signup />  */}
-      </main>
-    </>
+    <CartContextProvider>
+      <UserContextProvider>
+        <Header />
+        <Meals />
+        <Cart />
+        <Checkout />
+      </UserContextProvider>
+    </CartContextProvider>
   );
 }
 
