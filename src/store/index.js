@@ -13,6 +13,13 @@ const counterReducer = (state = { counter: 0 }, action) => {
       counter: state.counter - 1,
     };
   }
+
+  if (action.type === "INCREASEBYVALUE") {
+    return {
+      ...state,
+      counter: state.counter + action.payload,
+    };
+  }
   return state;
 };
 
