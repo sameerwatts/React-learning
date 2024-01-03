@@ -5,7 +5,7 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/jsx-runtime/recommended"
     ],
     "overrides": [
         {
@@ -31,4 +31,4 @@ module.exports = {
         "semi": ["error", "always"],
         "quotes": ["error", "double"]
     }
-}
+};
