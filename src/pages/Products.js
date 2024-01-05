@@ -15,19 +15,10 @@ const Products = () => {
         {PRODUCTS.map((product) => {
           return (
             <li key={product.id}>
-              <Link to={`/products/${product.id}`}>{product.title}</Link>
+              <Link to={product.id}>{product.title}</Link>
             </li>
           );
         })}
-        {/* <li>
-          <Link to="/products/product-1">Product1</Link>
-        </li>
-        <li>
-          <Link to="/products/product-2">Product2</Link>
-        </li>
-        <li>
-          <Link to="/products/product-3">Product3</Link>
-        </li> */}
       </ul>
     </>
   );
