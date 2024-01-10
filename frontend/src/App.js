@@ -26,7 +26,7 @@ import EventDetail from "./pages/EventDetail";
 import NewEvent from "./pages/NewEvent";
 import EditEvent from "./pages/EditEvent";
 import Root from "./pages/Root";
-import EventRoot from "./pages/EventRoot";
+import EventsRoot from "./pages/EventRoot";
 
 const router = createBrowserRouter([
   {
@@ -36,9 +36,18 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {
         path: "events",
-        element: <EventRoot />,
+        element: <EventsRoot />,
         children: [
-          { index: true, element: <Events /> },
+          { index: true, element: <Events />, loader: async () => {
+            const response = await fetch('http://localhost:8080/events');
+
+            if (!response.ok) {
+              // ...
+            } else {
+              const resData = await response.json();
+              return resData.events
+            }
+          } },
           { path: ":eventId", element: <EventDetail /> },
           { path: "new", element: <NewEvent /> },
           { path: ":eventId/edit", element: <EditEvent /> },
