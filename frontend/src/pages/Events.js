@@ -2,10 +2,10 @@ import { useLoaderData } from "react-router-dom";
 import EventsList from "../components/EventsList";
 
 function EventsPage() {
-  const events = useLoaderData();
+  const data = useLoaderData();
   // useLoaderData can be used in the same level or at the lower(Child) level, we can't use useLoaderData at the higher level
 
-  return <EventsList events={events} />;
+  return <EventsList events={data.events} />;
 }
 
 export default EventsPage;
@@ -16,7 +16,6 @@ export const loader = async () => {
   if (!response.ok) {
     // ...
   } else {
-    const resData = await response.json();
-    return resData.events;
+    return response
   }
 };
