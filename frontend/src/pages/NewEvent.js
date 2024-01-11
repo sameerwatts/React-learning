@@ -8,7 +8,7 @@ const NewEvent = () => {
 
 export default NewEvent;
 
-export const action = async ({ request, params }) => {
+export const action = async ({ request }) => {
   const data = await request.formData();
 
   const eventData = {
@@ -17,7 +17,6 @@ export const action = async ({ request, params }) => {
     date: data.get("date"),
     description: data.get("description"),
   };
-  console.log("eventData", eventData);
 
   const response = await fetch("http://localhost:8080/events", {
     method: "POST",
@@ -31,5 +30,5 @@ export const action = async ({ request, params }) => {
     throw json({ message: "Could not save events" }, { status: 500 });
   }
 
-  return redirect('/events')
+  return redirect("/events");
 };
